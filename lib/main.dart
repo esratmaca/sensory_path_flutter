@@ -4,6 +4,8 @@ import 'package:go_router/go_router.dart';
 import 'router.dart';
 import 'providers.dart';
 import 'database.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'l10n/app_localizations.dart';
 
 // ============================================
 // AI JÜRİ KANITI (a11y - Erişilebilirlik):
@@ -30,6 +32,16 @@ class SensoryApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       title: 'SensoryPath',
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('tr'),
+        Locale('en'),
+      ],
       theme: ThemeData.dark().copyWith(
         primaryColor: Colors.deepPurple,
         scaffoldBackgroundColor: const Color(0xFF18181A) // Otizm kontrast hassasiyeti için sert karanlık
@@ -64,7 +76,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       appBar: AppBar(
         title: Semantics(
           label: "Uygulama Ana Ekranı. SensoryPath AI",
-          child: const Text('SensoryPath', style: TextStyle(fontWeight: FontWeight.bold)),
+          child: Text(AppLocalizations.of(context)!.appTitle, style: const TextStyle(fontWeight: FontWeight.bold)),
         ),
         actions: [
           Semantics(
@@ -93,7 +105,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 ),
                 child: Center(
                   child: Text(
-                    '${provider.currentDB} dB',
+                    AppLocalizations.of(context)!.decibel(provider.currentDB),
                     style: const TextStyle(fontSize: 64, fontWeight: FontWeight.bold, color: Colors.white)
                   ),
                 ),
@@ -104,7 +116,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
               label: isDanger ? "DUYUSAL YÜK FAZLA. Cihaz şu an sizi uyarmak için titriyor." : "Ortam güvenli seviyede.",
               liveRegion: true,
               child: Text(
-                isDanger ? "⚠️ KRİZ UYARISI! TİTREŞİM AKTİF" : "✅ Güvenli ve Sakin Ortam",
+                isDanger ? "⚠️ ${AppLocalizations.of(context)!.danger} ${AppLocalizations.of(context)!.putOnHeadphones}" : "✅ ${AppLocalizations.of(context)!.statusNormal}",
                 style: TextStyle(
                   fontSize: 20, 
                   fontWeight: FontWeight.bold,
@@ -189,11 +201,11 @@ class _HistoryScreenState extends State<HistoryScreen> {
       appBar: AppBar(
         title: Semantics(
           label: "Offline Veritabanındaki Geçmiş Meltdownlar",
-          child: const Text('Kriz Geçmişi Kayıtları (DB)')
+          child: Text(AppLocalizations.of(context)!.historyTitle)
         )
       ),
       body: records.isEmpty 
-        ? Center(child: Semantics(label: "Kayıt yok", child: const Text("Henüz yüksek sese maruz kalınmadı.")))
+        ? Center(child: Semantics(label: "Kayıt yok", child: Text(AppLocalizations.of(context)!.historyEmpty)))
         : ListView.builder(
             itemCount: records.length,
             itemBuilder: (context, i) {
@@ -202,8 +214,8 @@ class _HistoryScreenState extends State<HistoryScreen> {
                 label: "Kayıt numarası ${i+1}. Şiddet: ${r['dbLevel']} desibel. Tarih: ${r['timestamp']}",
                 child: ListTile(
                   leading: const Icon(Icons.warning_amber, color: Colors.orange, size: 36),
-                  title: Text("Kriz Eşiği: ${r['dbLevel']} dB Aşıldı", style: const TextStyle(fontWeight: FontWeight.bold)),
-                  subtitle: Text("Offline Tarih: " + r['timestamp'].toString().substring(0, 16).replaceAll("T", " ")),
+                  title: Text("${AppLocalizations.of(context)!.decibel(r['dbLevel'])} ${AppLocalizations.of(context)!.danger}", style: const TextStyle(fontWeight: FontWeight.bold)),
+                  subtitle: Text(AppLocalizations.of(context)!.dateLabel(r['timestamp'].toString().substring(0, 16).replaceAll("T", " "))),
                 ),
               );
             }

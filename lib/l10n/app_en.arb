@@ -1,0 +1,35 @@
+{
+  "@@locale": "en",
+  "appTitle": "SensoryPath",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "safeRoute": "Safe Route",
+  "history": "History",
+  "dashboard": "Dashboard",
+  "noiseLevel": "Noise Level",
+  "decibel": "{db} dB",
+  "@decibel": {
+    "placeholders": {
+      "db": {
+        "type": "int"
+      }
+    }
+  },
+  "calm": "Calm",
+  "noisy": "Noisy",
+  "danger": "Danger!",
+  "putOnHeadphones": "Put on your headphones!",
+  "statusNormal": "Status: Normal",
+  "statusHigh": "Status: HIGH NOISE",
+  "historyEmpty": "No past crisis records found.",
+  "historyTitle": "Crisis History",
+  "dateLabel": "Date: {date}",
+  "@dateLabel": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  }
+}

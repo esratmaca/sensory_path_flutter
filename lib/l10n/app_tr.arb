@@ -1,0 +1,18 @@
+{
+  "@@locale": "tr",
+  "appTitle": "SensoryPath",
+  "safeRoute": "Güvenli Rota",
+  "history": "Geçmiş",
+  "dashboard": "Gösterge",
+  "noiseLevel": "Gürültü Seviyesi",
+  "decibel": "{db} dB",
+  "calm": "Sakin",
+  "noisy": "Gürültülü",
+  "danger": "Tehlike!",
+  "putOnHeadphones": "Kulaklığını tak!",
+  "statusNormal": "Durum: Normal",
+  "statusHigh": "Durum: YÜKSEK GÜRÜLTÜ",
+  "historyEmpty": "Geçmiş kriz kaydı bulunamadı.",
+  "historyTitle": "Kriz Geçmişi",
+  "dateLabel": "Tarih: {date}"
+}

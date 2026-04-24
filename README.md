@@ -4,6 +4,7 @@
 [![Flutter](https://img.shields.io/badge/Flutter-3.24-blue)]()
 [![a11y](https://img.shields.io/badge/a11y-WCAG_AA-green)]()
 [![License](https://img.shields.io/badge/license-MIT-yellow)]()
+[![APK Download](https://img.shields.io/badge/download-APK-orange)](https://github.com/esratmaca/sensory_path_flutter/releases)
 
 🎯 Ekran Görüntüsü (Android Emülatör)
 ![Demo](docs/demo_screenshot.png)
@@ -43,8 +44,10 @@ Projeyi incelerken tüm kütüphane bağlantıları `lib/` altındadır:
 ### Adımlar
 ```bash
 # 1. Repoyu klonla
-git clone https://github.com/esratmaca/sensory-path.git
-cd sensory-path
+git clone https://github.com/esratmaca/sensory_path_flutter.git
+
+cd sensory_path_flutter
+
 
 # 2. Bağımlılıkları yükle
 flutter pub get

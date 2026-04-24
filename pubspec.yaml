@@ -9,6 +9,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: any
   go_router: ^17.2.2
   noise_meter: ^5.1.0
   path_provider: ^2.1.5
@@ -24,3 +27,4 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  generate: true
